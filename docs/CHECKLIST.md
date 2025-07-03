@@ -2,7 +2,7 @@
 
 ## Setup & Configuration
 
-- [ ] Bootstrap project using `npx create-tsrouter-app@latest`
+- [ ] Bootstrap project using `npx create-tsrouter-app@latest --ui`
 - [ ] Set up Neon Postgres instance (sign up, configure connection)
 - [ ] Install and configure Drizzle ORM
 - [ ] Define database schema for rule sets (Drizzle)
