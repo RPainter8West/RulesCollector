@@ -4,7 +4,7 @@
 
 - [x] Bootstrap project using `npx create-tsrouter-app@latest --ui`
 - [x] Set up Neon Postgres instance (sign up, configure connection)
-- [ ] Deploy to Netlify
+- [x] Deploy to Netlify
 - [ ] Install and configure Drizzle ORM
 - [ ] Define database schema for rule sets (Drizzle)
 - [ ] Set up TANStack Router routes (list, add, edit)
