@@ -2,8 +2,9 @@
 
 ## Setup & Configuration
 
-- [ ] Bootstrap project using `npx create-tsrouter-app@latest --ui`
-- [ ] Set up Neon Postgres instance (sign up, configure connection)
+- [x] Bootstrap project using `npx create-tsrouter-app@latest --ui`
+- [x] Set up Neon Postgres instance (sign up, configure connection)
+- [ ] Deploy to Netlify
 - [ ] Install and configure Drizzle ORM
 - [ ] Define database schema for rule sets (Drizzle)
 - [ ] Set up TANStack Router routes (list, add, edit)
@@ -11,14 +12,12 @@
 ## Core Features
 
 - [ ] Build list page (table, actions, fetch from DB)
-
   - [ ] Display all rule sets (except ruleText)
   - [ ] Add "New Rule Set" button
   - [ ] Add Edit/Delete actions per row
   - [ ] Implement delete confirmation dialog
 
 - [ ] Build details page (form, validation, save to DB)
-
   - [ ] Shared form for create/edit modes
   - [ ] Form validation with Zod
   - [ ] Save/Cancel functionality
