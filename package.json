@@ -8,9 +8,9 @@
     "build": "vite build",
     "serve": "vite preview",
     "test": "vitest run",
-    "format": "biome format",
-    "lint": "biome lint",
-    "check": "biome check"
+    "cleanup": "biome check --write",
+    "format": "biome format --write",
+    "lint": "biome lint"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.0",
