@@ -8,13 +8,29 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
+import { createServerRootRoute } from '@tanstack/react-start/server'
+
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { ServerRoute as ApiRulesServerRouteImport } from './routes/api/rules'
+import { ServerRoute as ApiFooServerRouteImport } from './routes/api/foo'
+
+const rootServerRouteImport = createServerRootRoute()
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const ApiRulesServerRoute = ApiRulesServerRouteImport.update({
+  id: '/api/rules',
+  path: '/api/rules',
+  getParentRoute: () => rootServerRouteImport,
+} as any)
+const ApiFooServerRoute = ApiFooServerRouteImport.update({
+  id: '/api/foo',
+  path: '/api/foo',
+  getParentRoute: () => rootServerRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -38,6 +54,31 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
 }
+export interface FileServerRoutesByFullPath {
+  '/api/foo': typeof ApiFooServerRoute
+  '/api/rules': typeof ApiRulesServerRoute
+}
+export interface FileServerRoutesByTo {
+  '/api/foo': typeof ApiFooServerRoute
+  '/api/rules': typeof ApiRulesServerRoute
+}
+export interface FileServerRoutesById {
+  __root__: typeof rootServerRouteImport
+  '/api/foo': typeof ApiFooServerRoute
+  '/api/rules': typeof ApiRulesServerRoute
+}
+export interface FileServerRouteTypes {
+  fileServerRoutesByFullPath: FileServerRoutesByFullPath
+  fullPaths: '/api/foo' | '/api/rules'
+  fileServerRoutesByTo: FileServerRoutesByTo
+  to: '/api/foo' | '/api/rules'
+  id: '__root__' | '/api/foo' | '/api/rules'
+  fileServerRoutesById: FileServerRoutesById
+}
+export interface RootServerRouteChildren {
+  ApiFooServerRoute: typeof ApiFooServerRoute
+  ApiRulesServerRoute: typeof ApiRulesServerRoute
+}
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
@@ -50,6 +91,24 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+declare module '@tanstack/react-start/server' {
+  interface ServerFileRoutesByPath {
+    '/api/rules': {
+      id: '/api/rules'
+      path: '/api/rules'
+      fullPath: '/api/rules'
+      preLoaderRoute: typeof ApiRulesServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+    '/api/foo': {
+      id: '/api/foo'
+      path: '/api/foo'
+      fullPath: '/api/foo'
+      preLoaderRoute: typeof ApiFooServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+  }
+}
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -57,3 +116,10 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+const rootServerRouteChildren: RootServerRouteChildren = {
+  ApiFooServerRoute: ApiFooServerRoute,
+  ApiRulesServerRoute: ApiRulesServerRoute,
+}
+export const serverRouteTree = rootServerRouteImport
+  ._addFileChildren(rootServerRouteChildren)
+  ._addFileTypes<FileServerRouteTypes>()

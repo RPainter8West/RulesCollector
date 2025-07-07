@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import logo from "../logo.svg";
+import RulesList from "../components/RulesList";
 
 export const Route = createFileRoute("/")({
 	component: App,
@@ -7,33 +7,25 @@ export const Route = createFileRoute("/")({
 
 function App() {
 	return (
-		<div className="text-center">
-			<header className="min-h-screen flex flex-col items-center justify-center bg-[#282c34] text-white text-[calc(10px+2vmin)]">
-				<img
-					src={logo}
-					className="h-[40vmin] pointer-events-none animate-[spin_20s_linear_infinite]"
-					alt="logo"
-				/>
-				<p>
-					Edit <code>src/routes/index.tsx</code> and save to reload.
-				</p>
+		<div className="min-h-screen bg-gray-50">
+			<header className="bg-white shadow-sm py-4">
+				<div className="container mx-auto px-4">
+					<h1 className="text-xl font-bold text-gray-800">Rules Collector</h1>
+				</div>
+			</header>
+			<main>
+				<RulesList />
+			</main>
+			<footer className="py-4 text-center">
 				<a
-					className="text-[#61dafb] hover:underline"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn React
-				</a>
-				<a
-					className="text-[#61dafb] hover:underline"
+					className="text-blue-500 hover:underline"
 					href="https://tanstack.com"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					Learn TanStack
+					Powered by TanStack
 				</a>
-			</header>
+			</footer>
 		</div>
 	);
 }
