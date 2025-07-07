@@ -1,3 +1,4 @@
+import { json } from "@tanstack/react-start";
 import { createServerFileRoute } from "@tanstack/react-start/server";
 import { z } from "zod";
 import { db } from "../../db/index";
@@ -51,11 +52,7 @@ export const ServerRoute = createServerFileRoute("/api/rules").methods({
 				})),
 			});
 
-			return new Response(JSON.stringify(resp), {
-				headers: {
-					"Content-Type": "application/json",
-				},
-			});
+			return json(resp);
 		} catch (error) {
 			// console.error("Error fetching rules:", error);
 			// throw new Error("Failed to fetch rules");
