@@ -8,6 +8,13 @@
       "when": 1751638741005,
       "tag": "0000_first_expediter",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1752054155225,
+      "tag": "0001_update_rules_schema",
+      "breakpoints": true
     }
   ]
 }

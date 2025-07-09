@@ -6,9 +6,10 @@
 - [x] Set up Neon Postgres instance (sign up, configure connection)
 - [x] Deploy to Netlify
 - [x] Remove demo routes and components
-- [ ] Install and configure Drizzle ORM
-- [ ] Define database schema for rule sets (Drizzle)
-- [ ] Set up TANStack Router routes (list, add, edit)
+- [x] Install and configure Drizzle ORM
+- [x] Define database schema for rule sets (Drizzle)
+- [x] Set up TANStack Router API route for rules list
+- [ ] Set up TANStack Router API route for rules CRUD (add, edit, delete)
 
 ## Core Features
 
