@@ -1,5 +1,5 @@
 ---
-trigger: always_on
+applyTo: '**'
 ---
 
 # TANStack Router Development Rules

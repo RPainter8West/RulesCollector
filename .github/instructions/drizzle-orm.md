@@ -1,6 +1,7 @@
 ---
-trigger: always_on
+applyTo: '**'
 ---
+
 
 # Drizzle ORM Development Rules
 

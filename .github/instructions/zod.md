@@ -1,7 +1,7 @@
 ---
-trigger: glob
-globs: **/*.ts, **/*.tsx
+applyTo: **/*.ts, **/*.tsx
 ---
+
 
 # Zod Validation Development Rules
 

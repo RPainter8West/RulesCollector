@@ -1,6 +1,7 @@
 ---
-trigger: always_on
+applyTo: '**'
 ---
+
 
 # React 19 Development Rules
 

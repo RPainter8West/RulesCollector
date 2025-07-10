@@ -1,5 +1,5 @@
 ---
-trigger: always_on
+applyTo: '**/*.ts'
 ---
 
 # TANStack Query Development Rules

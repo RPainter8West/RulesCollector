@@ -44,7 +44,6 @@
 ## Examples
 - See `src/routes/api/rules/` for API patterns.
 - See `src/components/` for UI composition and form validation.
-- See `.windsurf/rules/` for detailed dev rules by technology.
 
 ## References
 - [TanStack Router Docs](https://tanstack.com/router)
@@ -54,4 +53,3 @@
 - [Zod Docs](https://zod.dev/)
 
 ---
-For more detailed rules, see `.windsurf/rules/` in the repo.

@@ -1,6 +1,7 @@
 ---
-trigger: always_on
+applyTo: '**/*.tsx'
 ---
+
 
 # TANStack Forms with Zod Development Rules
 

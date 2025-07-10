@@ -1,6 +1,7 @@
 ---
-trigger: always_on
+applyTo: '**'
 ---
+
 
 # Neon PostgreSQL Development Rules
 

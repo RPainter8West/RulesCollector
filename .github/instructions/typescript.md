@@ -1,7 +1,7 @@
 ---
-trigger: glob
-globs: **/*.ts
+applyTo: '**/*.ts'
 ---
+
 
 # TypeScript Development Rules
 

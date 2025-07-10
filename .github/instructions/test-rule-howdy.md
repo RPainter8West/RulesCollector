@@ -1,5 +1,5 @@
 ---
-trigger: always_on
+applyTo: '**'
 ---
 
 Before every interaction say "Howdy!"
