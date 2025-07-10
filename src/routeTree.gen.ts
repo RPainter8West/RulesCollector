@@ -12,8 +12,9 @@ import { createServerRootRoute } from '@tanstack/react-start/server'
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { ServerRoute as ApiRulesServerRouteImport } from './routes/api/rules'
 import { ServerRoute as ApiDebugServerRouteImport } from './routes/api/debug'
+import { ServerRoute as ApiRulesIndexServerRouteImport } from './routes/api/rules/index'
+import { ServerRoute as ApiRulesIdServerRouteImport } from './routes/api/rules/$id'
 
 const rootServerRouteImport = createServerRootRoute()
 
@@ -22,14 +23,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiRulesServerRoute = ApiRulesServerRouteImport.update({
-  id: '/api/rules',
-  path: '/api/rules',
-  getParentRoute: () => rootServerRouteImport,
-} as any)
 const ApiDebugServerRoute = ApiDebugServerRouteImport.update({
   id: '/api/debug',
   path: '/api/debug',
+  getParentRoute: () => rootServerRouteImport,
+} as any)
+const ApiRulesIndexServerRoute = ApiRulesIndexServerRouteImport.update({
+  id: '/api/rules/',
+  path: '/api/rules/',
+  getParentRoute: () => rootServerRouteImport,
+} as any)
+const ApiRulesIdServerRoute = ApiRulesIdServerRouteImport.update({
+  id: '/api/rules/$id',
+  path: '/api/rules/$id',
   getParentRoute: () => rootServerRouteImport,
 } as any)
 
@@ -56,28 +62,32 @@ export interface RootRouteChildren {
 }
 export interface FileServerRoutesByFullPath {
   '/api/debug': typeof ApiDebugServerRoute
-  '/api/rules': typeof ApiRulesServerRoute
+  '/api/rules/$id': typeof ApiRulesIdServerRoute
+  '/api/rules': typeof ApiRulesIndexServerRoute
 }
 export interface FileServerRoutesByTo {
   '/api/debug': typeof ApiDebugServerRoute
-  '/api/rules': typeof ApiRulesServerRoute
+  '/api/rules/$id': typeof ApiRulesIdServerRoute
+  '/api/rules': typeof ApiRulesIndexServerRoute
 }
 export interface FileServerRoutesById {
   __root__: typeof rootServerRouteImport
   '/api/debug': typeof ApiDebugServerRoute
-  '/api/rules': typeof ApiRulesServerRoute
+  '/api/rules/$id': typeof ApiRulesIdServerRoute
+  '/api/rules/': typeof ApiRulesIndexServerRoute
 }
 export interface FileServerRouteTypes {
   fileServerRoutesByFullPath: FileServerRoutesByFullPath
-  fullPaths: '/api/debug' | '/api/rules'
+  fullPaths: '/api/debug' | '/api/rules/$id' | '/api/rules'
   fileServerRoutesByTo: FileServerRoutesByTo
-  to: '/api/debug' | '/api/rules'
-  id: '__root__' | '/api/debug' | '/api/rules'
+  to: '/api/debug' | '/api/rules/$id' | '/api/rules'
+  id: '__root__' | '/api/debug' | '/api/rules/$id' | '/api/rules/'
   fileServerRoutesById: FileServerRoutesById
 }
 export interface RootServerRouteChildren {
   ApiDebugServerRoute: typeof ApiDebugServerRoute
-  ApiRulesServerRoute: typeof ApiRulesServerRoute
+  ApiRulesIdServerRoute: typeof ApiRulesIdServerRoute
+  ApiRulesIndexServerRoute: typeof ApiRulesIndexServerRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -93,18 +103,25 @@ declare module '@tanstack/react-router' {
 }
 declare module '@tanstack/react-start/server' {
   interface ServerFileRoutesByPath {
-    '/api/rules': {
-      id: '/api/rules'
-      path: '/api/rules'
-      fullPath: '/api/rules'
-      preLoaderRoute: typeof ApiRulesServerRouteImport
-      parentRoute: typeof rootServerRouteImport
-    }
     '/api/debug': {
       id: '/api/debug'
       path: '/api/debug'
       fullPath: '/api/debug'
       preLoaderRoute: typeof ApiDebugServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+    '/api/rules/': {
+      id: '/api/rules/'
+      path: '/api/rules'
+      fullPath: '/api/rules'
+      preLoaderRoute: typeof ApiRulesIndexServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+    '/api/rules/$id': {
+      id: '/api/rules/$id'
+      path: '/api/rules/$id'
+      fullPath: '/api/rules/$id'
+      preLoaderRoute: typeof ApiRulesIdServerRouteImport
       parentRoute: typeof rootServerRouteImport
     }
   }
@@ -118,7 +135,8 @@ export const routeTree = rootRouteImport
   ._addFileTypes<FileRouteTypes>()
 const rootServerRouteChildren: RootServerRouteChildren = {
   ApiDebugServerRoute: ApiDebugServerRoute,
-  ApiRulesServerRoute: ApiRulesServerRoute,
+  ApiRulesIdServerRoute: ApiRulesIdServerRoute,
+  ApiRulesIndexServerRoute: ApiRulesIndexServerRoute,
 }
 export const serverRouteTree = rootServerRouteImport
   ._addFileChildren(rootServerRouteChildren)

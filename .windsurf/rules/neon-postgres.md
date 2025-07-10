@@ -7,6 +7,7 @@ trigger: always_on
 ## Always Active
 
 ### Database Connection
+
 - Use connection pooling for optimal performance
 - Implement proper connection string management
 - Use environment variables for database credentials
@@ -14,6 +15,7 @@ trigger: always_on
 - Use serverless-friendly connection patterns
 
 ### Query Optimization
+
 - Use prepared statements for repeated queries
 - Implement proper indexing strategies
 - Use EXPLAIN ANALYZE for query performance analysis
@@ -21,6 +23,7 @@ trigger: always_on
 - Use batch operations for bulk data operations
 
 ### Schema Management
+
 - Use migrations for schema changes
 - Implement proper foreign key constraints
 - Use appropriate data types for columns
@@ -28,6 +31,7 @@ trigger: always_on
 - Use schemas for logical data separation
 
 ### Security
+
 - Use parameterized queries to prevent SQL injection
 - Implement proper role-based access control
 - Use SSL connections for data in transit
@@ -35,6 +39,7 @@ trigger: always_on
 - Regularly update database credentials
 
 ### Performance
+
 - Use connection pooling with appropriate pool sizes
 - Implement query caching where appropriate
 - Use read replicas for read-heavy workloads
@@ -42,6 +47,7 @@ trigger: always_on
 - Use appropriate PostgreSQL extensions
 
 ### Integration
+
 - Integrate with Drizzle ORM for type-safe queries
 - Use with TANStack Query for client-side caching
 - Implement proper error handling for database operations

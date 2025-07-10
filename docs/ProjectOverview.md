@@ -51,7 +51,7 @@ Each rule set contains:
 
 ## Version 1 Features (Post-Prototype)
 
-- **GitHub Authentication**: Users must login with GitHub and be linked to "8 West" organisation
+- **GitHub Authentication**: Users must login with GitHub and be linked to "8 West" organization
 - **Favorites System**: Users can mark rule sets as favorites for quick access
 - Enhanced search and filtering
 - Bulk operations
