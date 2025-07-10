@@ -1,0 +1,15 @@
+meta {
+  name: Get Rule by ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{domain}}/api/rules/:rule_id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  rule_id: 5
+}

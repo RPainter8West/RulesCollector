@@ -1,0 +1,27 @@
+meta {
+  name: Update Rule by ID
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{domain}}/api/rules/:rule_id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  rule_id: 5
+}
+
+body:json {
+  {
+    "title": "Updated Rule Title",
+    "description": "Updated rule description",
+    "author": "Updated Author",
+    "toolVersion": "2.0.0",
+    "toolName": "Updated Tool",
+    "ruleText": "Updated rule content here",
+    "fileTypeFilter": "*.ts,*.tsx"
+  }
+}

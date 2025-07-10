@@ -1,0 +1,15 @@
+meta {
+  name: Delete Rule by ID
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{domain}}/api/rules/:rule_id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  rule_id: 5
+}
